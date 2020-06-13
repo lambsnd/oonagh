@@ -1,82 +1,45 @@
 
-# Table of Contents
-
-1.  [Introduction](#org158590f)
-2.  [Assessments Info/](#org14cab80)
-    1.  [-info R script](#org55c4ed7)
-        1.  [Inputs](#org69d3329)
-        2.  [Outputs](#orgfcc16ff)
-    2.  [-info .csv file](#orgf87fb9a)
-        1.  [Description:](#orgc413de7)
-        2.  [Data columns:](#org417ed76)
-    3.  [-names .csv file](#orgee4ee7e)
-    4.  [-qids .csv file](#orgde0c34b)
-3.  [Assessments Data/](#org2e211ef)
-    1.  [Raw/](#org3c4c3e0)
-        1.  [&ldquo;all assignments&rdquo;](#org6c9790d)
-        2.  [&ldquo;IRT calibration&rdquo;](#org076ac0c)
-    2.  [Clean/](#org02d25b9)
-        1.  [Item Response & Time R script](#org4c5917b)
-        2.  [Item Response & Time master file](#org9611305)
-
-
-
-<a id="org158590f"></a>
 
 # Introduction
 
 This documents the file structure of folder Data & Documentation, which contains two main folders: Assessments Info and Assessments Data. It also describes the AP-CAT project regarding assignments, system usernames, teachers and classes system IDs.
 
 
-<a id="org14cab80"></a>
-
 # Assessments Info/
 
 
-<a id="org55c4ed7"></a>
+## <a id="org0908d6a"></a> -info R script
 
-## <a id="org39d84ba"></a> -info R script
-
-
-<a id="org69d3329"></a>
 
 ### Inputs
 
-It uses the file  [all\\<sub>assignments</sub>\\\_[DATE].csv](#org92f87b4) to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.
+It uses the file  [all\\<sub>assignments</sub>\\\_[DATE].csv](#org20d2048) to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.
 
-This script sorts assignments by `pilot year` (1 to 5), `creator_role` (*`staff`*, *`teacher`*, *`test`*), [`assessment_type`](#org73a4425) (*`apcat`*, *`practice`*, *`system-test`*), and provides information on the due date of each AP-CAT assessment, [`assessment_id`](#org1fa0073) associated with each teacher (`creator_id`) and class (`assessment_group_id`) in the study, whether the test was adaptive, whether it was published at the time the data was retrieved from the system. Please use `documentation.pdf` to match teacher and class IDs with their actual names.
+This script sorts assignments by `pilot year` (1 to 5), `creator_role` (*`staff`*, *`teacher`*, *`test`*), [`assessment_type`](#org3bfa743) (*`apcat`*, *`practice`*, *`system-test`*), and provides information on the due date of each AP-CAT assessment, [`assessment_id`](#org23a51e3) associated with each teacher (`creator_id`) and class (`assessment_group_id`) in the study, whether the test was adaptive, whether it was published at the time the data was retrieved from the system. Please use `documentation.pdf` to match teacher and class IDs with their actual names.
 
-
-<a id="orgfcc16ff"></a>
 
 ### Outputs
 
--   [assessment-names.csv](#org31f9cf6)
+-   [assessment-names.csv](#orge469f66)
     
     **WARNING**: this file contains identifiable information.
 
--   [assessments-info-[DATE].csv](#org0419e7b)
+-   [assessments-info-[DATE].csv](#orgab20b5d)
     
     **WARNING**: this file contains identifiable information.
 
 
-<a id="orgf87fb9a"></a>
+## <a id="orgab20b5d"></a> -info .csv file
 
-## <a id="org0419e7b"></a> -info .csv file
-
-
-<a id="orgc413de7"></a>
 
 ### Description:
 
-This file contains info on assessments administered in the AP-CAT project from 2015-16 (first pilot) to 2018-19 (fourth pilot). It includes information on assignment names, school year it was administered, class and teacher information, and its original due date. This data file may be used to learn which assignments were administered each year, chronological order of the assessments within a year, which assessment IDs belong to a specific assessment, etc. Use of the `tidyverse` R package is recommended. File was created with the script in [Assessments Info/assessments-info.R](#org39d84ba) and using [Assessments Data/Raw/IRT\\<sub>calibration.csv</sub>](#org0c4fc78).
+This file contains info on assessments administered in the AP-CAT project from 2015-16 (first pilot) to 2018-19 (fourth pilot). It includes information on assignment names, school year it was administered, class and teacher information, and its original due date. This data file may be used to learn which assignments were administered each year, chronological order of the assessments within a year, which assessment IDs belong to a specific assessment, etc. Use of the `tidyverse` R package is recommended. File was created with the script in [Assessments Info/assessments-info.R](#org0908d6a) and using [Assessments Data/Raw/IRT\\<sub>calibration.csv</sub>](#org4c058f1).
 
-
-<a id="org417ed76"></a>
 
 ### Data columns:
 
--   <a id="org1fa0073"></a> `assessment_id`: unique number identifying each assessment created in the AP-CAT system, usually corresponding to one assessment created for each class.
+-   <a id="org23a51e3"></a> `assessment_id`: unique number identifying each assessment created in the AP-CAT system, usually corresponding to one assessment created for each class.
 -   `assessment_name`: name given to the assessment at the time of administration.
 -   `pilot_year`: values 1 through 5, where
     -   1 = 2015-16
@@ -84,7 +47,7 @@ This file contains info on assessments administered in the AP-CAT project from 2
     -   3 = 2017-18
     -   4 = 2018-19
     -   5 = 2019-20
--   <a id="org73a4425"></a> `assessment_type`: 
+-   <a id="org3bfa743"></a> `assessment_type`: 
     -   *`apcat`* if assessment was planned by the AP-CAT staff (assessment may have been created for a staff class and should not be included in the analysis)
     -   *`practice`* if assessment was created by one of the teachers (you may or may not want to include these responses in your analysis)
     -   *`system-test`* if assessment was create by staff with the purpose of testing the system (responses are also test responses and should be excluded from analysis).
@@ -100,33 +63,23 @@ This file contains info on assessments administered in the AP-CAT project from 2
 -   `due_date`: date (and time) the assessment was due (set by the teacher responsible for the class).
 
 
-<a id="orgee4ee7e"></a>
+## <a id="orge469f66"></a> -names .csv file
 
-## <a id="org31f9cf6"></a> -names .csv file
+This file is created by the script in [Assessments Info/assessments-info.R](#org0908d6a) and it contains a single column with the names of all the assessments that were planned and administered by the AP-CAT staff, that is, it *does not* include practice assignments created by teachers or system-test type of assessments.
 
-This file is created by the script in [Assessments Info/assessments-info.R](#org39d84ba) and it contains a single column with the names of all the assessments that were planned and administered by the AP-CAT staff, that is, it *does not* include practice assignments created by teachers or system-test type of assessments.
+To learn which assignments were administered each year, the chronological order of the assessments within a year, assessment IDs, etc. refer to [Assessments Info/assessments-info.csv](#orgab20b5d).
 
-To learn which assignments were administered each year, the chronological order of the assessments within a year, assessment IDs, etc. refer to [Assessments Info/assessments-info.csv](#org0419e7b).
-
-
-<a id="orgde0c34b"></a>
 
 ## -qids .csv file
 
 
-<a id="org2e211ef"></a>
-
 # Assessments Data/
 
-
-<a id="org3c4c3e0"></a>
 
 ## Raw/
 
 
-<a id="org6c9790d"></a>
-
-### <a id="org92f87b4"></a> &ldquo;all assignments&rdquo;
+### <a id="org20d2048"></a> &ldquo;all assignments&rdquo;
 
 This raw file is named all\\<sub>assignments</sub>\\\_[DATE].csv. File is generated by the AP-CAT system. It is NOT comma separated. In R, you will need to speficy separator is &ldquo;\t&rdquo;. File contains the following columns:
 
@@ -142,9 +95,7 @@ This raw file is named all\\<sub>assignments</sub>\\\_[DATE].csv. File is genera
 7.  `name`: name given to the assessment at the time of administration.
 
 
-<a id="org076ac0c"></a>
-
-### <a id="org0c4fc78"></a> &ldquo;IRT calibration&rdquo;
+### <a id="org4c058f1"></a> &ldquo;IRT calibration&rdquo;
 
 1.  Description:
 
@@ -166,31 +117,25 @@ This raw file is named all\\<sub>assignments</sub>\\\_[DATE].csv. File is genera
     10. `blankfield_ans`: numerical variable containing the observed answer for a blankfield item. If *`NA`*, item type is multiple-choice and not blankfield.
 
 
-<a id="org02d25b9"></a>
-
 ## Clean/
 
 
-<a id="org4c5917b"></a>
+### <a id="org7f0504e"></a> Item Response & Time R script
 
-### <a id="org3bc65b0"></a> Item Response & Time R script
-
-Script to create master file named [`item-resp-time-data.csv`](#org2c53e7b) containing item and time response data.
+Script to create master file named [`item-resp-time-data.csv`](#orgea66162) containing item and time response data.
 
 1.  Inputs
 
 2.  Outputs
 
 
-<a id="org9611305"></a>
-
-### <a id="org2c53e7b"></a> Item Response & Time master file
+### <a id="orgea66162"></a> Item Response & Time master file
 
 1.  Description:
 
-    This file is named item-resp-time-data.csv and it contains both item responses and response times at the item level for each student, each item and each assessment administered by the AP-CAT projecs. This file was created with the script in [resp-time-data.R](#org3bc65b0) and using the raw data file [all\\<sub>assignments</sub>\\\_[DATE].csv](#org92f87b4).
+    This file is named item-resp-time-data.csv and it contains both item responses and response times at the item level for each student, each item and each assessment administered by the AP-CAT projecs. This file was created with the script in [resp-time-data.R](#org7f0504e) and using the raw data file [all\\<sub>assignments</sub>\\\_[DATE].csv](#org20d2048).
     
-    **Note**: data generated by `practice` or `test` assessments have been removed (see [`assessment_type`](#org73a4425) variable description).
+    **Note**: data generated by `practice` or `test` assessments have been removed (see [`assessment_type`](#org3bfa743) variable description).
 
 2.  Data columns:
 
