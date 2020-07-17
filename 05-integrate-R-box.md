@@ -1,23 +1,23 @@
 
-# How to read files from Box directly into R
+# Box and R Integration
 
-### 1. Create a Box developer app
+## Create a Box developer app
 
 Follow the instructions in https://r-box.github.io/boxr/articles/boxr-app-interactive.html
 
-### 2. Install `boxr` package
+## Install `boxr` package
 
 After you have created a Box app, install the package [`boxr`](https://r-box.github.io/boxr/) in R and load using `library(boxr)`.
 
-### 3. Authenticate Box account
+## Authenticate Box account
 
 Now use function [`box_auth()`](https://r-box.github.io/boxr/reference/box_auth.html) and the app's `client_id` and `client_secret` to authenticate your Box account. Follow the instructions here: https://r-box.github.io/boxr/articles/boxr.html#authentication 
 
 You are now ready to load files directly from Box using the `boxr` package in R.
 
-### 4. Use `boxr` functions to load a Box file
+## Use `boxr` functions to load a Box file
 
-#### a) Search for a file
+### Search for a file
 
 In this example, we are searching for an anonimized version of the survey data from Pilot 5. We recall the file has the tag "anon" in it, but we do not remember the exact name. When searching for a file, use the most unique part of a file name. For example, if you include the word "data" in your search, you will receive a long list of results. If your search returns more than 10 objects, the [`box_search()`](https://r-box.github.io/boxr/reference/box_search.html) function outputs only the first 10 objects.
 ```R
@@ -45,7 +45,7 @@ You will see the following output (owner's email account was omitted):
   
     Use as.data.frame() to extract full results.
 
-#### b) Load file from Box into R
+### Load file from Box into R
 
 We want to load the first file on the list above, `pilot5_merged_anon.csv`, onto R. This is the clean, anonimized survey dataset we are looking for. Now we use the output from [`box_search()`](https://r-box.github.io/boxr/reference/box_search.html) directly into [`box_read()`](https://r-box.github.io/boxr/reference/box_read.html):
 
@@ -55,7 +55,7 @@ all_survey <- box_read(bs) # reads first file on the list
 
 Done! You can now use the object `all_survey` in your environment in R.
 
-#### Other ways to search for a file
+### Other ways to search for a file
 
 Suppose you do not remember the file name, but you remember the folder name. For example, we may recall this data file is somewhere in the "AP-CAT Fifth Pilot" folder in Box. You can first find the folder ID ([`box_search()`](https://r-box.github.io/boxr/reference/box_search.html)), change the directory to that folder ([`box_setwd()`](https://r-box.github.io/boxr/reference/box_setwd.html)), and list all the files on that folder ([`box_ls`](https://r-box.github.io/boxr/reference/box_ls.html)) or narrow your search within that file:
 
@@ -140,9 +140,9 @@ all_survey <- box_read(bs) # reads first file on the list
 ```
 
 
-### Extras
+## Extras
 
-#### How to upload a file into Box
+### How to upload a file into Box
 
 You can also save a new file or update an existing file directly into box. The important detail is to make sure you are working within the intended folder. First search for the folder you want:
 
