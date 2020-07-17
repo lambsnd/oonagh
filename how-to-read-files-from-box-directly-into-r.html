@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 How to read files from Box directly into R | Oonagh</title>
+  <meta name="description" content="Everything you need (and nothing more) to start a bookdown book." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 How to read files from Box directly into R | Oonagh" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://drebouca.github.com/oonagh/" />
+  
+  <meta property="og:description" content="Everything you need (and nothing more) to start a bookdown book." />
+  <meta name="github-repo" content="drebouca/oonagh" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 How to read files from Box directly into R | Oonagh" />
+  
+  <meta name="twitter:description" content="Everything you need (and nothing more) to start a bookdown book." />
+  
+
+<meta name="author" content="LAMBS Lab" />
+
+
+<meta name="date" content="2020-07-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="assessments-data.html"/>
+
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Oonagh</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="assessments-info.html"><a href="assessments-info.html"><i class="fa fa-check"></i><b>2</b> Assessments Info/</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="assessments-info.html"><a href="assessments-info.html#info-r-script"><i class="fa fa-check"></i><b>2.1</b> <a id="org0908d6a"></a> -info R script</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="assessments-info.html"><a href="assessments-info.html#inputs"><i class="fa fa-check"></i><b>2.1.1</b> Inputs</a></li>
+<li class="chapter" data-level="2.1.2" data-path="assessments-info.html"><a href="assessments-info.html#outputs"><i class="fa fa-check"></i><b>2.1.2</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="assessments-info.html"><a href="assessments-info.html#info-.csv-file"><i class="fa fa-check"></i><b>2.2</b> <a id="orgab20b5d"></a> -info .csv file</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="assessments-info.html"><a href="assessments-info.html#description"><i class="fa fa-check"></i><b>2.2.1</b> Description:</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessments-info.html"><a href="assessments-info.html#data-columns"><i class="fa fa-check"></i><b>2.2.2</b> Data columns:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="assessments-info.html"><a href="assessments-info.html#names-.csv-file"><i class="fa fa-check"></i><b>2.3</b> <a id="orge469f66"></a> -names .csv file</a></li>
+<li class="chapter" data-level="2.4" data-path="assessments-info.html"><a href="assessments-info.html#qids-.csv-file"><i class="fa fa-check"></i><b>2.4</b> -qids .csv file</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="assessments-data.html"><a href="assessments-data.html"><i class="fa fa-check"></i><b>3</b> Assessments Data/</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="assessments-data.html"><a href="assessments-data.html#raw"><i class="fa fa-check"></i><b>3.1</b> Raw/</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="assessments-data.html"><a href="assessments-data.html#all-assignments"><i class="fa fa-check"></i><b>3.1.1</b> <a id="org20d2048"></a> “all assignments”</a></li>
+<li class="chapter" data-level="3.1.2" data-path="assessments-data.html"><a href="assessments-data.html#irt-calibration"><i class="fa fa-check"></i><b>3.1.2</b> <a id="org4c058f1"></a> “IRT calibration”</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="assessments-data.html"><a href="assessments-data.html#clean"><i class="fa fa-check"></i><b>3.2</b> Clean/</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="assessments-data.html"><a href="assessments-data.html#item-response-time-r-script"><i class="fa fa-check"></i><b>3.2.1</b> <a id="org7f0504e"></a> Item Response &amp; Time R script</a></li>
+<li class="chapter" data-level="3.2.2" data-path="assessments-data.html"><a href="assessments-data.html#item-response-time-master-file"><i class="fa fa-check"></i><b>3.2.2</b> <a id="orgea66162"></a> Item Response &amp; Time master file</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html"><i class="fa fa-check"></i><b>4</b> How to read files from Box directly into R</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html#create-a-box-developer-app"><i class="fa fa-check"></i><b>4.0.1</b> 1. Create a Box developer app</a></li>
+<li class="chapter" data-level="4.0.2" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html#install-boxr-package"><i class="fa fa-check"></i><b>4.0.2</b> 2. Install <code>boxr</code> package</a></li>
+<li class="chapter" data-level="4.0.3" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html#authenticate-box-account"><i class="fa fa-check"></i><b>4.0.3</b> 3. Authenticate Box account</a></li>
+<li class="chapter" data-level="4.0.4" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html#use-boxr-functions-to-load-a-box-file"><i class="fa fa-check"></i><b>4.0.4</b> 4. Use <code>boxr</code> functions to load a Box file</a></li>
+<li class="chapter" data-level="4.0.5" data-path="how-to-read-files-from-box-directly-into-r.html"><a href="how-to-read-files-from-box-directly-into-r.html#extras"><i class="fa fa-check"></i><b>4.0.5</b> Extras</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Oonagh</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-to-read-files-from-box-directly-into-r" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> How to read files from Box directly into R</h1>
+<div id="create-a-box-developer-app" class="section level3" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> 1. Create a Box developer app</h3>
+<p>Follow the instructions in <a href="https://r-box.github.io/boxr/articles/boxr-app-interactive.html" class="uri">https://r-box.github.io/boxr/articles/boxr-app-interactive.html</a></p>
+</div>
+<div id="install-boxr-package" class="section level3" number="4.0.2">
+<h3><span class="header-section-number">4.0.2</span> 2. Install <code>boxr</code> package</h3>
+<p>After you have created a Box app, install the package <a href="https://r-box.github.io/boxr/"><code>boxr</code></a> in R and load using <code>library(boxr)</code>.</p>
+</div>
+<div id="authenticate-box-account" class="section level3" number="4.0.3">
+<h3><span class="header-section-number">4.0.3</span> 3. Authenticate Box account</h3>
+<p>Now use function <a href="https://r-box.github.io/boxr/reference/box_auth.html"><code>box_auth()</code></a> and the app’s <code>client_id</code> and <code>client_secret</code> to authenticate your Box account. Follow the instructions here: <a href="https://r-box.github.io/boxr/articles/boxr.html#authentication" class="uri">https://r-box.github.io/boxr/articles/boxr.html#authentication</a></p>
+<p>You are now ready to load files directly from Box using the <code>boxr</code> package in R.</p>
+</div>
+<div id="use-boxr-functions-to-load-a-box-file" class="section level3" number="4.0.4">
+<h3><span class="header-section-number">4.0.4</span> 4. Use <code>boxr</code> functions to load a Box file</h3>
+<div id="a-search-for-a-file" class="section level4" number="4.0.4.1">
+<h4><span class="header-section-number">4.0.4.1</span> a) Search for a file</h4>
+<p>In this example, we are searching for an anonimized version of the survey data from Pilot 5. We recall the file has the tag “anon” in it, but we do not remember the exact name. When searching for a file, use the most unique part of a file name. For example, if you include the word “data” in your search, you will receive a long list of results. If your search returns more than 10 objects, the <a href="https://r-box.github.io/boxr/reference/box_search.html"><code>box_search()</code></a> function outputs only the first 10 objects.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb1-1"></a>bs &lt;-<span class="st"> </span><span class="kw">box_search</span>(<span class="st">&quot;merged&quot;</span>)</span>
+<span id="cb1-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb1-2"></a>bs</span></code></pre></div>
+<p>You will see the following output (owner’s email account was omitted):</p>
+<pre><code>box.com remote object list (26 objects)
+
+  Summary of first 10:
+
+                                     name type           id   size           owner
+1                  pilot5_merged_anon.csv file ********9808   5 MB --------@nd.edu
+2                       pilot5_merged.rds file ********9752 580 kB --------@nd.edu
+3                  pilot5_merged_anon.csv file ********7291   4 MB --------@nd.edu
+4                  pilot5_merged_anon.rds file ********7845 580 kB --------@nd.edu
+5                         merged_data.csv file ********4632 360 kB --------@nd.edu
+6                         merged_data.csv file ********9954 300 kB --------@nd.edu
+7                       pilot5_merged.csv file ********4394   4 MB --------@nd.edu
+8  pilot4_merged_APmock_data_20200305.csv file ********6741 970 kB --------@nd.edu
+9  pilot4_merged_APmock_data_20200305.rds file ********8022 230 kB --------@nd.edu
+10  pilot4_merged_data_updated_20200305.R file ********7744  61 kB --------@nd.edu
+
+Use as.data.frame() to extract full results.</code></pre>
+</div>
+<div id="b-load-file-from-box-into-r" class="section level4" number="4.0.4.2">
+<h4><span class="header-section-number">4.0.4.2</span> b) Load file from Box into R</h4>
+<p>We want to load the first file on the list above, <code>pilot5_merged_anon.csv</code>, onto R. This is the clean, anonimized survey dataset we are looking for. Now we use the output from <a href="https://r-box.github.io/boxr/reference/box_search.html"><code>box_search()</code></a> directly into <a href="https://r-box.github.io/boxr/reference/box_read.html"><code>box_read()</code></a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb3-1"></a>all_survey &lt;-<span class="st"> </span><span class="kw">box_read</span>(bs) <span class="co"># reads first file on the list</span></span></code></pre></div>
+<p>Done! You can now use the object <code>all_survey</code> in your environment in R.</p>
+</div>
+<div id="other-ways-to-search-for-a-file" class="section level4" number="4.0.4.3">
+<h4><span class="header-section-number">4.0.4.3</span> Other ways to search for a file</h4>
+<p>Suppose you do not remember the file name, but you remember the folder name. For example, we may recall this data file is somewhere in the “AP-CAT Fifth Pilot” folder in Box. You can first find the folder ID (<a href="https://r-box.github.io/boxr/reference/box_search.html"><code>box_search()</code></a>), change the directory to that folder (<a href="https://r-box.github.io/boxr/reference/box_setwd.html"><code>box_setwd()</code></a>), and list all the files on that folder (<a href="https://r-box.github.io/boxr/reference/box_ls.html"><code>box_ls</code></a>) or narrow your search within that file:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb4-1"></a>fs &lt;-<span class="st"> </span><span class="kw">box_search</span>(<span class="st">&quot;Fifth Pilot&quot;</span>,</span>
+<span id="cb4-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb4-2"></a>                 <span class="dt">type =</span> <span class="st">&quot;folder&quot;</span>)</span>
+<span id="cb4-3"><a href="how-to-read-files-from-box-directly-into-r.html#cb4-3"></a>fs</span></code></pre></div>
+<pre><code>  Summary of first 1:
+
+                name   type          id   size           owner
+1 AP-CAT Fifth Pilot folder *******1415 420 MB --------@nd.edu</code></pre>
+<p>Change Box’s working directory to folder “AP-CAT Fifth Pilot” using the piping from <code>dplyr</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb6-1"></a>fs <span class="op">%&gt;%</span></span>
+<span id="cb6-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb6-2"></a><span class="st">  </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="how-to-read-files-from-box-directly-into-r.html#cb6-3"></a><span class="st">  </span><span class="kw">filter</span>(name <span class="op">==</span><span class="st"> &quot;AP-CAT Fifth Pilot&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="how-to-read-files-from-box-directly-into-r.html#cb6-4"></a><span class="st">  </span><span class="kw">select</span>(id) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span></span>
+<span id="cb6-5"><a href="how-to-read-files-from-box-directly-into-r.html#cb6-5"></a><span class="st">  </span><span class="kw">box_setwd</span>(.)</span></code></pre></div>
+<p>The output will show the folder’s unique ID (<code>id</code>), the path to the new working directory (<code>tree</code>) and brief count of its contents:</p>
+<pre><code>box.com working directory changed to &#39;AP-CAT Fifth Pilot&#39;
+
+      id: *******1415
+    tree: All Files/NSF AP_CAT/AP-CAT Fifth Pilot
+   owner: --------@nd.edu
+contents: 3 files, 8 folders</code></pre>
+<p>Listing all objects in the folder:</p>
+<pre><code>box_ls()</code></pre>
+<p>None of the listed files below is the one we want (<code>pilot5_merged_anon.csv</code>). Thus, we continue our search.</p>
+<pre><code>box.com remote object list (11 objects)
+
+  Summary of first 10:
+
+                                            name   type           id   size
+1                      2019-20 class information folder  *******0003 330 MB
+2                         2019-2020 Assignment 1 folder  *******3656 3.6 MB
+3                         2019-2020 Assignment 2 folder  *******4475 1.1 MB
+4                         2019-2020 Assignment 3 folder  *******1296 810 kB
+5              2019-2020 Assignment 4 (adaptive) folder  *******7035  63 kB
+6                           Administrative forms folder  *******1727 1.2 MB
+7                          AP-CAT raffle winners folder  *******0214 5.8 kB
+8                                           Data folder  *******6259  85 MB
+9                                  all_users.csv   file  *******9066 100 kB
+10 pilot5_student_roster_2020_03_06_updated.xlsx   file  *******7581  45 kB</code></pre>
+<p>Alternatively, we can search directly for the file within the new working directory:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb10-1"></a>bs &lt;-<span class="st"> </span><span class="kw">box_search</span>(<span class="st">&quot;merged&quot;</span>)</span>
+<span id="cb10-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb10-2"></a>bs</span></code></pre></div>
+<p>And the output will be:</p>
+<pre><code>  Summary of first 10:
+
+                                     name type           id   size
+1                  pilot5_merged_anon.csv file 692412069808   5 MB
+2                       pilot5_merged.rds file 631004009752 580 kB
+3                  pilot5_merged_anon.csv file 678762427291   4 MB
+4                  pilot5_merged_anon.rds file 678762767845 580 kB
+5                         merged_data.csv file 448094904632 360 kB
+6                         merged_data.csv file 408895539954 300 kB
+7                       pilot5_merged.csv file 631016974394   4 MB
+8  pilot4_merged_APmock_data_20200305.rds file 661155798022 230 kB
+9  pilot4_merged_APmock_data_20200305.csv file 628364146741 970 kB
+10  pilot4_merged_data_updated_20200305.R file 628360947744  61 kB</code></pre>
+<p>Finally, read file and create a data object:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb12-1"></a>all_survey &lt;-<span class="st"> </span><span class="kw">box_read</span>(bs) <span class="co"># reads first file on the list</span></span></code></pre></div>
+</div>
+</div>
+<div id="extras" class="section level3" number="4.0.5">
+<h3><span class="header-section-number">4.0.5</span> Extras</h3>
+<div id="how-to-upload-a-file-into-box" class="section level4" number="4.0.5.1">
+<h4><span class="header-section-number">4.0.5.1</span> How to upload a file into Box</h4>
+<p>You can also save a new file or update an existing file directly into box. The important detail is to make sure you are working within the intended folder. First search for the folder you want:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb13-1"></a>ws &lt;-<span class="st"> </span><span class="kw">box_search</span>(<span class="st">&quot;Combined&quot;</span>,</span>
+<span id="cb13-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb13-2"></a>                 <span class="dt">type =</span> <span class="st">&quot;folder&quot;</span>)</span>
+<span id="cb13-3"><a href="how-to-read-files-from-box-directly-into-r.html#cb13-3"></a>ws</span></code></pre></div>
+<pre><code>  Summary of first 2:
+
+                 name   type           id   size           owner
+1       Combined Data folder  *******4491  34 MB --------@nd.edu
+2 Combined Clean Data folder  *******2557 6.2 MB --------@nd.edu</code></pre>
+<p>Then, using piping commands from the package <code>dplyr</code>, obtain the <code>id</code> for the “Combined Data” folder, and use this <code>id</code> as the <code>dir_id</code> when writing a file into box. Use the <a href="https://r-box.github.io/boxr/reference/box_write.html"><code>box_write()</code></a> function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-1"></a><span class="co">## using piping commands from &#39;dplyr&#39;  </span></span>
+<span id="cb15-2"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-2"></a>ws <span class="op">%&gt;%</span></span>
+<span id="cb15-3"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-3"></a><span class="st">  </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-4"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-4"></a><span class="st">  </span><span class="kw">filter</span>(name <span class="op">==</span><span class="st"> &quot;Combined Data&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb15-5"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-5"></a><span class="st">  </span><span class="kw">select</span>(id) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-6"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-6"></a><span class="st">  </span><span class="kw">box_write</span>(<span class="dt">dir_id =</span> .,</span>
+<span id="cb15-7"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-7"></a>            <span class="dt">x =</span> all_survey,</span>
+<span id="cb15-8"><a href="how-to-read-files-from-box-directly-into-r.html#cb15-8"></a>            <span class="dt">file_name =</span> <span class="st">&quot;pilot5_merged.rds&quot;</span>)</span></code></pre></div>
+<p>If file with that name already exists, <a href="https://r-box.github.io/boxr/"><code>boxr</code></a> will attempt to upload a new version of the file.</p>
+<pre><code>|======================================================================| 100%
+File &#39;pilot5_merged.rds&#39; aleady exists. Attempting to upload new version (V9).
+|======================================================================| 100%
+
+box.com remote file reference
+
+ name        : pilot5_merged.rds 
+ file id     : *******9752 
+ version     : V9 
+ size        : 600 kB 
+ modified at : 2020-07-17 12:24:44 
+ created at  : 2020-07-17 12:24:44 
+ uploaded by : --------@nd.edu 
+ owned by    : --------@nd.edu 
+ shared link : None 
+
+ parent folder name :  Combined Data 
+ parent folder id   :  *******4491 </code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="assessments-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
