@@ -9,7 +9,7 @@ Follow the instructions in https://r-box.github.io/boxr/articles/boxr-app-intera
 
 After you have created a Box app, install the package `boxr` in R and load using `library(boxr)`.
 
-### 3. Authenticate Box aacount
+### 3. Authenticate Box account
 
 Now use function `box_auth()` and the app's `client_id` and `client_secret` to authenticate your Box account. Follow the instructions here: https://r-box.github.io/boxr/articles/boxr.html#authentication 
 
@@ -47,10 +47,9 @@ You will see the following output (owner's email account was omitted):
 
 #### b) Load file from Box into R
 
-We would like to load the first file, `pilot5_merged_anon.csv`, onto R. This is the clean, anonimized survey dataset we were looking for. Now we use the output from `box_search()` directly into `box_read()`:
+We want to load the first file on the list above, `pilot5_merged_anon.csv`, onto R. This is the clean, anonimized survey dataset we are looking for. Now we use the output from `box_search()` directly into `box_read()`:
 
 ```R
-bs <- box_search("pilot5_merged_anon.csv")
 all_survey <- box_read(bs) # reads first file on the list
 ```
 
@@ -71,14 +70,16 @@ fs
                     name   type          id   size           owner
     1 AP-CAT Fifth Pilot folder *******1415 420 MB --------@nd.edu
 
-Change the directory to "AP-CAT Fifth Pilot":
+Change Box's working directory to folder "AP-CAT Fifth Pilot" using the piping from `dplyr`:
 ```R
 fs %>%
   as.data.frame() %>%
   filter(name == "AP-CAT Fifth Pilot") %>%
-  select(id) %>% unlist() -> wd_id
-box_setwd(wd_id) # changes directory to 
+  select(id) %>% unlist() %>%
+  box_setwd(.)
 ```
+
+The output will show the folder's unique ID (`id`), the path to the new working directory (`tree`) and brief count of its contents:
 
     box.com working directory changed to 'AP-CAT Fifth Pilot'
 
@@ -87,10 +88,12 @@ box_setwd(wd_id) # changes directory to
        owner: --------@nd.edu
     contents: 3 files, 8 folders
 
-And list all objects in the folder:
+Listing all objects in the folder:
 ```
 box_ls()
 ```
+
+None of the listed files below is the one we want ("pilot5_merged_anon.csv"). Thus, we continue our search.
 
     box.com remote object list (11 objects)
 
@@ -108,7 +111,7 @@ box_ls()
     9                                  all_users.csv   file  *******9066 100 kB
     10 pilot5_student_roster_2020_03_06_updated.xlsx   file  *******7581  45 kB
 
-Alternatively, we can search directly for the file:
+Alternatively, we can search directly for the file within the new working directory:
 
 ```R
 bs <- box_search("merged")
@@ -131,7 +134,7 @@ And the output will be:
     9  pilot4_merged_APmock_data_20200305.csv file 628364146741 970 kB
     10  pilot4_merged_data_updated_20200305.R file 628360947744  61 kB
 
-Finally, read file and create data object:
+Finally, read file and create a data object:
 ```R
 all_survey <- box_read(bs) # reads first file on the list
 ```
@@ -139,9 +142,9 @@ all_survey <- box_read(bs) # reads first file on the list
 
 ### Extras
 
-#### How to upload file into Box
+#### How to upload a file into Box
 
-You can also save a new file or update an existing file directly into box. The important detail to pay attention to is to make sure you are working with the intended folder. First search folder:
+You can also save a new file or update an existing file directly into box. The important detail is to make sure you are working within the intended folder. First search for the folder you want:
 
 ```R
 ws <- box_search("Combined",
@@ -155,7 +158,7 @@ ws
     1       Combined Data folder  *******4491  34 MB --------@nd.edu
     2 Combined Clean Data folder  *******2557 6.2 MB --------@nd.edu
 
-Then, using piping commands from the package `dplyr`, obtain the `id` for the "Combined Data" folder, and use this `id` as the `dir_id` when writing a file into box using the `box_write()` function:
+Then, using piping commands from the package `dplyr`, obtain the `id` for the "Combined Data" folder, and use this `id` as the `dir_id` when writing a file into box. Use the `box_write()` function:
 
 ```R
 ## using piping commands from 'dplyr'  
