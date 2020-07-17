@@ -1,5 +1,5 @@
 
-## How to read files from Box directly into R
+# How to read files from Box directly into R
 
 ### 1. Create a Box developer app
 
@@ -7,11 +7,11 @@ Follow the instructions in https://r-box.github.io/boxr/articles/boxr-app-intera
 
 ### 2. Install `boxr` package
 
-After you have created a Box app, install the package `boxr` in R and load using `library(boxr)`.
+After you have created a Box app, install the package [`boxr`](https://r-box.github.io/boxr/) in R and load using `library(boxr)`.
 
 ### 3. Authenticate Box account
 
-Now use function `box_auth()` and the app's `client_id` and `client_secret` to authenticate your Box account. Follow the instructions here: https://r-box.github.io/boxr/articles/boxr.html#authentication 
+Now use function [`box_auth()`](https://r-box.github.io/boxr/reference/box_auth.html) and the app's `client_id` and `client_secret` to authenticate your Box account. Follow the instructions here: https://r-box.github.io/boxr/articles/boxr.html#authentication 
 
 You are now ready to load files directly from Box using the `boxr` package in R.
 
@@ -19,7 +19,7 @@ You are now ready to load files directly from Box using the `boxr` package in R.
 
 #### a) Search for a file
 
-In this example, we are searching for an anonimized version of the survey data from Pilot 5. We recall the file has the tag "anon" in it, but we do not remember the exact name. When searching for a file, use the most unique part of a file name. For example, if you include the word "data" in your search, you will receive a long list of results. If your search returns more than 10 objects, the `box_search()` function outputs only the first 10 objects.
+In this example, we are searching for an anonimized version of the survey data from Pilot 5. We recall the file has the tag "anon" in it, but we do not remember the exact name. When searching for a file, use the most unique part of a file name. For example, if you include the word "data" in your search, you will receive a long list of results. If your search returns more than 10 objects, the [`box_search()`](https://r-box.github.io/boxr/reference/box_search.html) function outputs only the first 10 objects.
 ```R
 bs <- box_search("merged")
 bs
@@ -47,7 +47,7 @@ You will see the following output (owner's email account was omitted):
 
 #### b) Load file from Box into R
 
-We want to load the first file on the list above, `pilot5_merged_anon.csv`, onto R. This is the clean, anonimized survey dataset we are looking for. Now we use the output from `box_search()` directly into `box_read()`:
+We want to load the first file on the list above, `pilot5_merged_anon.csv`, onto R. This is the clean, anonimized survey dataset we are looking for. Now we use the output from [`box_search()`](https://r-box.github.io/boxr/reference/box_search.html) directly into [`box_read()`](https://r-box.github.io/boxr/reference/box_read.html):
 
 ```R
 all_survey <- box_read(bs) # reads first file on the list
@@ -57,7 +57,7 @@ Done! You can now use the object `all_survey` in your environment in R.
 
 #### Other ways to search for a file
 
-Suppose you do not remember the file name, but you remember the folder name. For example, we may recall this data file is somewhere in the "AP-CAT Fifth Pilot" folder in Box. You can first find the folder ID (`box_search()`), change the directory to that folder (`box_setwd()`), and list all the files on that folder (`box_ls`) or narrow your search within that file:
+Suppose you do not remember the file name, but you remember the folder name. For example, we may recall this data file is somewhere in the "AP-CAT Fifth Pilot" folder in Box. You can first find the folder ID ([`box_search()`](https://r-box.github.io/boxr/reference/box_search.html)), change the directory to that folder ([`box_setwd()`](https://r-box.github.io/boxr/reference/box_setwd.html)), and list all the files on that folder ([`box_ls`](https://r-box.github.io/boxr/reference/box_ls.html)) or narrow your search within that file:
 
 ```R
 fs <- box_search("Fifth Pilot",
@@ -93,7 +93,7 @@ Listing all objects in the folder:
 box_ls()
 ```
 
-None of the listed files below is the one we want ("pilot5_merged_anon.csv"). Thus, we continue our search.
+None of the listed files below is the one we want (`pilot5_merged_anon.csv`). Thus, we continue our search.
 
     box.com remote object list (11 objects)
 
@@ -158,7 +158,7 @@ ws
     1       Combined Data folder  *******4491  34 MB --------@nd.edu
     2 Combined Clean Data folder  *******2557 6.2 MB --------@nd.edu
 
-Then, using piping commands from the package `dplyr`, obtain the `id` for the "Combined Data" folder, and use this `id` as the `dir_id` when writing a file into box. Use the `box_write()` function:
+Then, using piping commands from the package `dplyr`, obtain the `id` for the "Combined Data" folder, and use this `id` as the `dir_id` when writing a file into box. Use the [`box_write()`](https://r-box.github.io/boxr/reference/box_write.html) function:
 
 ```R
 ## using piping commands from 'dplyr'  
@@ -171,7 +171,7 @@ ws %>%
             file_name = "pilot5_merged.rds")
 ```
 
-If file with that name already exists, `boxr` will attempt to upload a new version of the file.
+If file with that name already exists, [`boxr`](https://r-box.github.io/boxr/) will attempt to upload a new version of the file.
 
     |======================================================================| 100%
     File 'pilot5_merged.rds' aleady exists. Attempting to upload new version (V9).
