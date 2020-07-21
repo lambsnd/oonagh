@@ -1,5 +1,4 @@
 
-
 # Introduction
 
 This documents the file structure of folder Data & Documentation, which contains two main folders: Assessments Info and Assessments Data. It also describes the AP-CAT project regarding assignments, system usernames, teachers and classes system IDs.
@@ -8,12 +7,12 @@ This documents the file structure of folder Data & Documentation, which contains
 # Assessments Info/
 
 
-## -info R script
+## Assessments Info R Script
 
 
 ### Inputs
 
-It uses the file  [all\\<sub>assignments</sub>\\\_[DATE].csv](#org20d2048) to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.
+It uses the file  [all\_assignments\_[DATE].csv](#org20d2048) to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.
 
 This script sorts assignments by `pilot year` (1 to 5), `creator_role` (*`staff`*, *`teacher`*, *`test`*), [`assessment_type`](#org3bfa743) (*`apcat`*, *`practice`*, *`system-test`*), and provides information on the due date of each AP-CAT assessment, [`assessment_id`](#org23a51e3) associated with each teacher (`creator_id`) and class (`assessment_group_id`) in the study, whether the test was adaptive, whether it was published at the time the data was retrieved from the system. Please use `documentation.pdf` to match teacher and class IDs with their actual names.
 

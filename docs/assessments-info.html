@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="assessments-info.html"><a href="assessments-info.html"><i class="fa fa-check"></i><b>2</b> Assessments Info/</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="assessments-info.html"><a href="assessments-info.html#info-r-script"><i class="fa fa-check"></i><b>2.1</b> -info R script</a>
+<li class="chapter" data-level="2.1" data-path="assessments-info.html"><a href="assessments-info.html#assessments-info-r-script"><i class="fa fa-check"></i><b>2.1</b> Assessments Info R Script</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="assessments-info.html"><a href="assessments-info.html#inputs"><i class="fa fa-check"></i><b>2.1.1</b> Inputs</a></li>
 <li class="chapter" data-level="2.1.2" data-path="assessments-info.html"><a href="assessments-info.html#outputs"><i class="fa fa-check"></i><b>2.1.2</b> Outputs</a></li>
@@ -202,11 +202,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="assessments-info" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Assessments Info/</h1>
-<div id="info-r-script" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> -info R script</h2>
+<div id="assessments-info-r-script" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Assessments Info R Script</h2>
 <div id="inputs" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Inputs</h3>
-<p>It uses the file <a href="#org20d2048">all\<sub>assignments</sub>\_[DATE].csv</a> to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.</p>
+<p>It uses the file <a href="#org20d2048">all_assignments_[DATE].csv</a> to obtain information about which assessments were given each year by the AP-CAT project and which were given by the teachers participating in the study (as practice assignments). This script will need to be re-run by the end of the data collection in May/2020.</p>
 <p>This script sorts assignments by <code>pilot year</code> (1 to 5), <code>creator_role</code> (<em><code>staff</code></em>, <em><code>teacher</code></em>, <em><code>test</code></em>), <a href="assessments-info.html#org3bfa743"><code>assessment_type</code></a> (<em><code>apcat</code></em>, <em><code>practice</code></em>, <em><code>system-test</code></em>), and provides information on the due date of each AP-CAT assessment, <a href="assessments-info.html#org23a51e3"><code>assessment_id</code></a> associated with each teacher (<code>creator_id</code>) and class (<code>assessment_group_id</code>) in the study, whether the test was adaptive, whether it was published at the time the data was retrieved from the system. Please use <code>documentation.pdf</code> to match teacher and class IDs with their actual names.</p>
 </div>
 <div id="outputs" class="section level3" number="2.1.2">
