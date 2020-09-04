@@ -1,25 +1,11 @@
-# Initial page
+# Oonagh - LAMBS lab documentation 
 
-## Getting Super Powers
+## How to Add Content to the Website
 
-Becoming a super hero is a fairly straight forward process:
-
-```
-$ give me super-powers
-```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
-
+1. Create content in markdown (.md) or Rmarkdown (.Rmd) format. You can do so by
+ a) on the repository, click "Add File" and write title followed by format:
+ ```
+ my_new_content.md
+ ```
 
 
