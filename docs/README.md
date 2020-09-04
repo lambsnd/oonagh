@@ -1,6 +1,18 @@
 # Oonagh - LAMBS lab documentation 
 
+## How to Set up Local Repository
+
+### Using RStudio
+
+
+
+### Using GitHub Desktop
+
+### Using the Command Line
+
 ## How to Add Content to the Website
+
+
 
 1. Create content in markdown (.md) or Rmarkdown (.Rmd) format. You can do so by
  
