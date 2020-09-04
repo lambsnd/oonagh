@@ -1,10 +1,27 @@
 # Oonagh - LAMBS lab documentation 
 
-## How to Set up Local Repository
+## How to set up a repository on your own computer
+
+Easiest way to contribute to the website is to set up a local project copy (repository) of this content on your own computer. That way, you can make change to your *local* copy and upload it to the main GitHub repository once you are ready. But don't forget to do this often so that others can also contribute to the most up-to-date version of the file.
 
 ### Using RStudio
 
+You need to make sure
 
+  1. Git is installed on your computer, and
+  2. RStudio can find Git on your computer
+  
+  *Note*: [this](https://cfss.uchicago.edu/setup/git-with-rstudio/) can help.
+
+If you have installed Git and RStudio knows how to find it, you can now set up a new repository:
+
+  - Go to the `oonagh` repository front page and click the green button "Download" on the upper hand corner
+  *File > New Project*. Do you see an option to create from Version Control? If yes, good.
+  - Select *New Directory > New Project*. Check the box "Create a git repository".
+  - Give this project a name and click "Create Project". You will see a "Git" tab now, right next to "Environment" and "History".
+  - Now you
+  
+  *Source*: adapted from [this](https://cfss.uchicago.edu/setup/git-with-rstudio/#if-everything-installed-correctly)
 
 ### Using GitHub Desktop
 
