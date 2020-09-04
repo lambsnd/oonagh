@@ -5,6 +5,12 @@
 1. Create content in markdown (.md) or Rmarkdown (.Rmd) format. You can do so by
  a) on the repository, click "Add File" and write title followed by format:
  
- ![New File](/docs/new_file.png "A new file")
+ ![New File](/docs/new_file.png#smaller)
+ 
+ img[src*="#smaller"] {
+   width:300px;
+   height:100px;
+ }
+ 
 
 
