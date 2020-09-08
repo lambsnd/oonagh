@@ -15,13 +15,13 @@ You need to make sure
 
 If you have installed Git and RStudio knows how to find it, you can now set up a new repository:
 
-  - Go to the `oonagh` repository front page and click the green button "Download" on the upper hand corner
-  *File > New Project*. Do you see an option to create from Version Control? If yes, good.
-  - Select *New Directory > New Project*. Check the box "Create a git repository".
-  - Give this project a name and click "Create Project". You will see a "Git" tab now, right next to "Environment" and "History".
-  - Now you
+  1. Go to the `oonagh` repository and click the green button "Download" on the upper hand corner.
+  2. *File > New Project*. Do you see an option to create from Version Control? If yes, good.
+  3. Select *New Directory > New Project*. Check the box "Create a git repository".
+  4. Give this project a name and click "Create Project". You will see a "Git" tab now, right next to "Environment" and "History".
+  5. Now you
   
-  *Source*: adapted from [this](https://cfss.uchicago.edu/setup/git-with-rstudio/#if-everything-installed-correctly)
+  *Source*: adapted from [here](https://cfss.uchicago.edu/setup/git-with-rstudio/#if-everything-installed-correctly).
 
 ### Using GitHub Desktop
 
