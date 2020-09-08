@@ -13,15 +13,21 @@ You need to make sure
   
   *Note*: [this](https://cfss.uchicago.edu/setup/git-with-rstudio/) can help.
 
-If you have installed Git and RStudio knows how to find it, you can now set up a new repository:
+If you have installed Git and RStudio knows how to find it, you can now set up a repository on your computer by copying the files to your computer.
 
-  1. Go to the `oonagh` repository and click the green button "Download" on the upper hand corner.
-  2. *File > New Project*. Do you see an option to create from Version Control? If yes, good.
-  3. Select *New Directory > New Project*. Check the box "Create a git repository".
-  4. Give this project a name and click "Create Project". You will see a "Git" tab now, right next to "Environment" and "History".
-  5. Now you
+#### Copy repository into your computer
+
+This is called "cloning" the repository.
+  1. Go to the `oonagh` repository and click the green button "Code" on the upper hand corner. To clone with SSH, copy the address: (git@github.com:lambsnd/oonagh.git). You might need to authenticate first.
+  2. *File > New Project* > *Version Control* > *Git*. Under _Repository URL_, paste the address from step 1.
+  3. Change the _Project directory name_, or keep it as is.
+  4. Next to _Create project as subdirectory of:_, click on _Browse..._ to choose the folder in which you will create a copy of the repository in your computer. This will create a folder in the directory you choose.
+  5. Click _Create repository_.
   
-  *Source*: adapted from [here](https://cfss.uchicago.edu/setup/git-with-rstudio/#if-everything-installed-correctly).
+#### Upload changes to GitHub
+
+
+
 
 ### Using GitHub Desktop
 
