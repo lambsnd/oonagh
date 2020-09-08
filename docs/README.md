@@ -22,7 +22,7 @@ This is called "cloning" the repository.
   2. *File > New Project* > *Version Control* > *Git*. Under _Repository URL_, paste the address from step 1.
   3. Change the _Project directory name_, or keep it as is.
   4. Click on _Browse..._ to choose the folder in which you will create a copy of the repository in your computer. This will create a folder in the directory you choose.
-  5. Click _Create repository_.
+  5. Click _Create repository_ to finish.
   
 #### Upload changes to GitHub
 
