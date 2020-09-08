@@ -26,6 +26,7 @@ This is called "cloning" the repository.
   
 #### Upload changes to GitHub
 
+1. Make sure the version on your computer is current by downloading (pulling) the most up-to-date version from the GitHub repository: *Tools* > *Version Control* > *Pull branches*.
 
 
 
