@@ -19,16 +19,16 @@ If you have installed Git and RStudio knows how to find it, you can now set up a
 
 This is called "cloning" the repository.
   1. Go to the `oonagh` repository and click the green button "Code" on the upper hand corner. To clone with SSH, copy the address. You might need to authenticate first.
-  2. *File > New Project* > *Version Control* > *Git*. Under _Repository URL_, paste the address from step 1.
-  3. Change the _Project directory name_, or keep it as is.
-  4. Click on _Browse..._ to choose the folder in which you will create a copy of the repository in your computer. This will create a folder in the directory you choose.
-  5. Click _Create repository_ to finish.
+  2. *File > New Project* > *Version Control* > *Git*. Under "Repository URL", paste the address from step 1.
+  3. Change the "Project directory name", or keep it as is.
+  4. Click on "Browse..." to choose the folder in which you will create a copy of the repository in your computer. This will create a folder in the directory you choose.
+  5. Click "Create repository" to finish.
   
 #### Upload changes to GitHub
 
-1. Make sure the version on your computer is current by downloading (pulling) the most up-to-date version from the GitHub repository: *Tools* > *Version Control* > *Pull branches*.
+Before starting to make any changes to a file, please **make sure the version on your computer is current** by downloading (pulling) the most up-to-date version from the GitHub repository: *Tools* > *Version Control* > *Pull Branches*.
 
-
+1. After you have edited the file, save it and commit (save changes to your local git repository): *Tools* > *Version Control* > *Commit...*. 
 
 ### Using GitHub Desktop
 
