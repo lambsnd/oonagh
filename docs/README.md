@@ -76,4 +76,4 @@ Easiest way to contribute to the website is to [set up a local project copy](#co
     
     b) OR editing the file directly on GitHub.
 
-#### Tutorial by [Dani Rebouças](github.com/drebouca)
+#### Tutorial by [Dani Rebouças](https://www.github.com/drebouca)
