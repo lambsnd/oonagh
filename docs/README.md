@@ -3,7 +3,7 @@
 ## Summary (TL;DR)
   - *File > New Project* > *Version Control* > *Git*. [Set up a copy](#copy-github-repository-into-your-computer) of the GitHub repository (*local repository*) in your own computer.
   - *Tools* > *Version Control* > *Pull Branches*. Before you start to make any changes, make sure the file version in your computer is the most up-to-date. To do so, you will need to *pull* branches from the GitHub repository.
-  - *Tools* > *Commit...*. Any time you make changes, you need to *commit* or [save changes](upload-changes-made-to-an-existing-file) to your local repository. Add a descriptive *commit message* in case you ever need to go back to a certain version.
+  - *Tools* > *Commit...*. Any time you make changes, you need to *commit* or [save changes](#upload-changes-made-to-an-existing-file) to your local repository. Add a descriptive *commit message* in case you ever need to go back to a certain version.
   - *Tools* > *Version Control* > *Push Branch*. After you commit, you will need to *push* the changes, or upload changes to GitHub.
 
 ## How to set up a repository on your own computer (using RStudio)
