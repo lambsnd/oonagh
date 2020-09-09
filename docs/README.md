@@ -47,7 +47,7 @@ Before starting to make any changes to an existing file, please **make sure the 
 
 Suppose you have been working on a file you wish to share on GitHub. This example uses a markdown (.md) file, but you can follow the same steps for any file format.
 
-1. If you have set up a local copy of the repository on GitHub, you can proceed to step 2. Otherwise, go to the [previous section](#copy-repository-into-your-computer).
+1. If you have set up a local copy of the repository on GitHub, you can proceed to step 2. Otherwise, go to the [previous section](#copy-github-repository-into-your-computer).
 2. Make sure the file is in the folder of the local copy of the repository, and that in RStudio you have opened the project of your local repository.
 3. Click *Tools* > *Commit...* and check the to commit the new file under the "Change" tab.
 4. Add a "Commit message" on the designated space in upper right corner. This message should be something descriptive, related to the changes you have made. 
