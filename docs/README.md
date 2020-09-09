@@ -74,6 +74,6 @@ Easiest way to contribute to the website is to [set up a local project copy](#co
 
     a) [using RStudio](#upload-new-file-to-github),
     
-    b) OR editing the file directly on GitHub.
+    b) OR editing the file directly on GitHub. Click on the file you want to edit, then on the file window, upper right corner, you will see a pencil :pencil2: icon to edit. GitHub provides a file preview for Markdown and RMarkdown files.
 
 #### Tutorial by [Dani Rebouças](https://www.github.com/drebouca)
