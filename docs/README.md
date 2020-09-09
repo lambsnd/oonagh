@@ -1,4 +1,10 @@
-# Oonagh - LAMBS lab documentation 
+# Version Control using GitHub
+
+## Summary (TL;DR)
+  - *File > New Project* > *Version Control* > *Git*. [Set up a copy](#copy-github-repository-into-your-computer) of the GitHub repository (*local repository*) in your own computer.
+  - *Tools* > *Version Control* > *Pull Branches*. Before you start to make any changes, make sure the file version in your computer is the most up-to-date. To do so, you will need to *pull* branches from the GitHub repository.
+  - *Tools* > *Commit...*. Any time you make changes, you need to *commit* or [save changes](upload-changes-made-to-an-existing-file) to your local repository. Add a descriptive *commit message* in case you ever need to go back to a certain version.
+  - *Tools* > *Version Control* > *Push Branch*. After you commit, you will need to *push* the changes, or upload changes to GitHub.
 
 ## How to set up a repository on your own computer (using RStudio)
 
@@ -20,19 +26,19 @@ This is called "cloning" the repository.
   4. Click on "Browse..." to choose the folder in which you will create a copy of the repository in your computer. This will create a folder in the directory you choose.
   5. Click "Create repository" to finish.
  
-### Open existing repository into RStudio
+### Open existing local repository into RStudio
 
 1. With RStudio open, go to *File* > *Open Project...*
 2. Select the folder corresponding to your local repository, which in our example is "oonagh/". You're done! 
  
 ## Using version control with RStudio
 
-### Upload changes made to an existing file
-
 Before starting to make any changes to an existing file, please **make sure the version on your computer is current** by downloading (pulling) the most up-to-date version from the GitHub repository: *Tools* > *Version Control* > *Pull Branches*.
 
+### Upload changes made to an existing file
+
 1. After you have edited the file, save it and commit (save changes to your local git repository): *Tools* > *Version Control* > *Commit...*. 
-2. On the commit window, check the box or boxes under the "Change" tab to stage (signal to git that you want to commit the file) your changes.
+2. On the Commit window, check the box or boxes under the "Change" tab to stage (signal to git that you want to commit the file) your changes.
 3. Add a "Commit message" on the designated space in upper right corner. This message should be something descriptive, related to the changes you have made. 
 4. Then click "Commit". You will now see the message "Your branch is ahead of 'origin/master' by 1 commit." on top of the commit window.
 5. To upload updated files to GitHub, go to *Tools* > *Version Control* > *Push Branch*. You should now be able to see your updated file on the GitHub repository.
@@ -46,14 +52,8 @@ Suppose you have been working on a file you wish to share on GitHub. This exampl
 3. Click *Tools* > *Commit...* and check the to commit the new file under the "Change" tab.
 4. Add a "Commit message" on the designated space in upper right corner. This message should be something descriptive, related to the changes you have made. 
 4. Then click "Commit". You will now see the message "Your branch is ahead of 'origin/master' by 1 commit." on top of the commit window.
-5. To upload changes to GitHub, go to *Tools* > *Version Control* > *Push Branch*. You should now be able to see your updated file on the GitHub repository.
+5. Go to *Tools* > *Version Control* > *Push Branch* to upload changes to GitHub. You should now be able to see your updated file on the GitHub repository.
   
-### Summary (TL;DR)
-  - Set up a copy of the GitHub repository (*local repository*) in your own computer.
-  - Before you start to make any changes, make sure the file version in your computer is the most up-to-date. To do so, you will need to *pull* branches from the GitHub repository.
-  - Any time you make changes you need to *commit*, or save changes to your local repository.
-  - Add a descriptive *commit message* in case you ever need to go back to a certain version.
-  - After you commit, you will need to *push* the changes, or upload changes to GitHub.
 
 ## How to add new content to the Oonagh website
 
@@ -71,5 +71,9 @@ Easiest way to contribute to the website is to [set up a local project copy](#co
    c) OR uploading an existing file to the docs folder by clicking on the **docs/** folder, then at the top click "Add File" and click "Upload Files" instead,
    
 2. Edit and upload changes by:
-    a) [using RStudio](#upload-new-file-to-github).
-    b) OR 
+
+    a) [using RStudio](#upload-new-file-to-github),
+    
+    b) OR editing the file directly on GitHub.
+
+#### Tutorial by [Dani Rebouças](github.com/drebouca)
