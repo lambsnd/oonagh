@@ -64,26 +64,28 @@ Suppose you have been working on a file you wish to share on GitHub. This exampl
 5. Go to *Tools* > *Version Control* > *Push Branch* to upload changes to GitHub. You should now be able to see your updated file on the GitHub repository.
   
 
-## How to add new content to the Oonagh website
+<!-- ## How to add new content to the Oonagh website
 
-Easiest way to contribute to the website is to [set up a local project copy](#copy-github-repository-into-your-computer) on your own computer. That way, you can make changes to your *local* copy of the files and upload them to the main GitHub repository once you are ready. But don't forget to do this often so that others can also contribute to the most up-to-date version of the files.
+<!-- Easiest way to contribute to the website is to [set up a local project copy](#copy-github-repository-into-your-computer) on your own computer. That way, you can make changes to your *local* copy of the files and upload them to the main GitHub repository once you are ready. But don't forget to do this often so that others can also contribute to the most up-to-date version of the files.
 
 
-1. Create content in markdown (.md) or Rmarkdown (.Rmd) format. You can do so by:
+<!--1. Create content in markdown (.md) or Rmarkdown (.Rmd) format. You can do so by:
 
-   a) creating a file using RStudio by going to *File* > *New File* > *Markdown File* or *R Markdown...*,
+<!--   a) creating a file using RStudio by going to *File* > *New File* > *Markdown File* or *R Markdown...*,
  
-   b) OR clicking on the **docs/** folder, then at the top click "Add File" and create a new .md file:
+<!--   b) OR clicking on the **docs/** folder, then at the top click "Add File" and create a new .md file:
    <img src="/docs/new_file.png" width="700">
    <img src="/docs/new_file2.png" width="700">
 
-   c) OR uploading an existing file to the docs folder by clicking on the **docs/** folder, then at the top click "Add File" and click "Upload Files" instead,
+<!--   c) OR uploading an existing file to the docs folder by clicking on the **docs/** folder, then at the top click "Add File" and click "Upload Files" instead,
    
-2. Edit and upload changes by:
+<!--2. Edit and upload changes by:
 
     a) [using RStudio](#upload-new-file-to-github),
     
     b) OR editing the file directly on GitHub. Click on the file you want to edit, then on the file window, upper right corner, you will see a pencil :pencil2: icon to edit. GitHub provides a file preview for Markdown and RMarkdown files.
+
+
 
 ## Git Vocabulary
 
