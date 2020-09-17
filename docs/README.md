@@ -30,7 +30,7 @@ This is called "cloning" the repository.
       - You might need to authenticate into GitHub first.
   2. Go to *File > New Project* > *Version Control* > *Git*. 
       - Under "Repository URL", paste the address from step 1.
-  3. Change the "Project directory name" (optional). Let's call it `oonagh-local`.
+  3. Change the "Project directory name" (optional). Let's call it oonagh-local/.
   4. Click on "Browse..." and choose __the folder to house a copy of the repository__.
       - For example, if you choose ~/Documents/GitHub/, you can access a copy of the repository at ~/Documents/GitHub/oonagh-local/.
   5. Click "Create repository" to finish.
@@ -38,7 +38,7 @@ This is called "cloning" the repository.
 ### Open existing local repository into RStudio
 
 1. With RStudio open, go to *File* > *Open Project...*
-2. Select the folder corresponding to your local repository, which in our example is "oonagh/". You're done! 
+2. Select the folder corresponding to your local repository, which in our example is oonagh-local/. You're done! 
  
 ## Using version control with RStudio
 
