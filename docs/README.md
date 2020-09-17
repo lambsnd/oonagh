@@ -79,12 +79,12 @@ Suppose you have been working on a file you wish to share on GitHub. This exampl
 
 <!--   c) OR uploading an existing file to the docs folder by clicking on the **docs/** folder, then at the top click "Add File" and click "Upload Files" instead,
    
-<!--2. Edit and upload changes by:
+2. Edit and upload changes by:
 
     a) [using RStudio](#upload-new-file-to-github),
     
     b) OR editing the file directly on GitHub. Click on the file you want to edit, then on the file window, upper right corner, you will see a pencil :pencil2: icon to edit. GitHub provides a file preview for Markdown and RMarkdown files.
-
+-->
 
 
 ## Git Vocabulary
