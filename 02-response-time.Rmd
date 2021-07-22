@@ -1,0 +1,36 @@
+# Response Time Measurement with Qualtrics
+
+
+Select question, and under the **Edit Question** panel on the left, select under the menu :arrow_down_small: *Question Behavior* the option :radio_button: *Javascript*.
+
+Then add the following code for a data variable called `responseTimeMeasurement`:
+```js
+Qualtrics.SurveyEngine.addOnload(function()
+{
+	/*Place your JavaScript here to run when the page loads*/
+
+});
+
+Qualtrics.SurveyEngine.addOnReady(function()
+{
+	/*Place your JavaScript here to run when the page is fully displayed*/
+    jQuery('input:radio').click(function(d){ 
+        var responsetimedata = Qualtrics.SurveyEngine.getEmbeddedData('responseTimeMeasurement');
+        var elem = d.currentTarget;
+        var val = elem.getAttribute("id");
+
+        var t = new Date();
+        var values = [{val: val,
+                      t: t}];    
+        responsetimedata = responsetimedata.concat(values)
+        Qualtrics.SurveyEngine.setEmbeddedData( 'responseTimeMeasurement', responsetimedata)
+        console.log(responsetimedata);
+    });
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function()
+{
+	/*Place your JavaScript here to run when the page is unloaded*/
+
+});
+```
