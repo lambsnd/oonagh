@@ -6,7 +6,7 @@ Once the participant starts the survey, they will be asked to enter an ID (e.g.,
 
 Select ID question, and, under the **Edit question** panel on the left, select under the menu :arrow_down_small: *Question behavior* the option :radio_button: *Javascript*. 
 
-Then add the following script, replacing **999** with the correct **QID** (question ID).
+Then add the following script, replacing **999** with the correct **QID** (question ID), and :white_check_mark: Save.
 
 ```js
 Qualtrics.SurveyEngine.addOnload(function()
