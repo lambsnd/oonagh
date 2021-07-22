@@ -2,6 +2,6 @@ book_filename: "documentation"
 chapter_name: "Chapter "
 repo: https://github.com/drebouca/oonagh
 output_dir: docs
-rmd_files: ["index.Rmd", "04-document-files.md", "05-integrate-R-box.md"]
+rmd_files: ["index.Rmd", "05-integrate-R-box.md", "04-document-files.md"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
