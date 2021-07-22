@@ -2,11 +2,19 @@
 
 Once the participant starts the survey, they will be asked to enter an ID (e.g., name, username, or email address). This information will be used to record response times for that participant.
 
-## Set up ID variable
+## Set up username variable
 
-Select ID question, and, under the **Edit question** panel on the left, select under the menu :arrow_down_small: *Question behavior* the option :radio_button: *Javascript*. 
+For this tutorial, we will call the **username** variable the one that identifies your participant. After you have added the username question, click on it to select. Under the **Edit question** panel on the left, select, under the menu :arrow_down_small: *Question behavior*, the option :radio_button: *Javascript*. 
 
-Then add the following script, replacing **999** with the correct **QID** (question ID), and :white_check_mark: Save.
+Then add the following script for the data variable `responseTimeMeasurement`, replacing `999` with the [correct QID](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs), and :white_check_mark: save.
+
+- Here is how to find the QID (also available [here](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs)):
+
+1. On the top right corner, click your account picture
+2. Select *Account Settings*
+3. You should see four panels appear; click on *Qualtrics IDs*.
+4. This section shows a list of all your available IDs for Surveys, User, Libraries, and more. Under Surveys, select the survey the question belongs to. **Make sure to select the correct Survey**-- since the QIDs are *unique to each survey*.
+5. A list of questions and their IDs will pop up; select the one you need for the username ID.
 
 ```js
 Qualtrics.SurveyEngine.addOnload(function()
