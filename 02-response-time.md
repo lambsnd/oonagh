@@ -2,29 +2,23 @@
 
 Once the participant starts the survey, they will be asked to enter an ID (e.g., name, username, or email address). This information will be used to record response times for that participant.
 
-The first step in obtaining response time data using Qualtrics is to obtain *timestamps* from which you can derive response times. Timestamps are recordings of date and time data for when a certain action happens. In this case, we will record date and time data for every time a participant makes an answer choice.
+This tutorial explains how to record response times per question in Qualtrics, when using the Matrix Table (or Multiple-Choice) question format. The javascripts shared here records [*timestamps*](https://en.wikipedia.org/wiki/Timestamp) (date and time) each time the participant makes an answer choice.
 
-To tell Qualtrics that you want to record timestamps, under the Survey panel, select **Survey flow** on the left and follow the steps: 
+## Set up Embedded Data
+
+To tell Qualtrics that you want to record timestamps, under the "Survey" tab, select **_Survey flow_** on the left panel (it may show four icons; survey flow is the second) and follow these steps: 
 
 1. Click to :heavy_plus_sign: *Add a new Element Here*.
 2. Select *Embedded Data*
 3. Type a descriptive variable name, for example, `responseTimeMeasurement`.
-4. Click again on :heavy_plus_sign: *Add a new Element Here* and select *Web Service*
+4. Save changes and go back to menu the **_Builder_** menu (first icon on left panel).
 
-## Set up username variable
+## Set up a Username variable
 
-For this tutorial, we will call the **username** variable the one that identifies your participant. After you have added the username question, click on it to select. Under the **Edit question** panel on the left, select, under the menu :arrow_down_small: *Question behavior*, the option :radio_button: *Javascript*. 
+For this tutorial, we will call the **Username** variable the one that identifies your participant. After you have added the username question, click on it to select. 
 
-Then add the following script for the data variable `responseTimeMeasurement`, replacing `999` with the [correct QID](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs), and :white_check_mark: save.
-
-> #### Here is how to find the QID (also available [here](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs)):
->
-> 1. On the top right corner, click your account picture
-> 2. Select *Account Settings*
-> 3. You should see four panels appear; click on *Qualtrics IDs*.
-> 4. This section shows a list of all your available IDs for Surveys, User, Libraries, and more. Under Surveys, select the survey the question belongs to. **Make sure to select the correct Survey**-- since the QIDs are *unique to each survey*.
-> 5. A list of questions and their IDs will pop up; select the question used to collect the username.
-
+1. Under the **_Builder_** menu, scroll down to the section :arrow_down_small: *Question behavior*, and select the option *Javascript*. 
+2. Add the following script for the data variable `responseTimeMeasurement`, replacing `999` with the [correct QID](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs), and :white_check_mark: save. More instructions on how to find QIDs are given below.
 
 ```js
 Qualtrics.SurveyEngine.addOnload(function()
@@ -45,6 +39,15 @@ Qualtrics.SurveyEngine.addOnUnload(function()
 	/*Place your JavaScript here to run when the page is unloaded*/
 });
 ```
+
+> #### Here is how to find the QID (also available [here](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs)):
+>
+> 1. On the top right corner, click your account picture
+> 2. Select *Account Settings*
+> 3. You should see four panels appear; click on *Qualtrics IDs*.
+> 4. This section shows a list of all your available IDs for Surveys, User, Libraries, and more. Under Surveys, select the survey the question belongs to. **Make sure to select the correct Survey**-- since the QIDs are *unique to each survey*.
+> 5. A list of questions and their IDs will pop up; select the question used to collect the username.
+
 
 ## Set up response time data
 
