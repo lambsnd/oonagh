@@ -99,4 +99,4 @@ In this example, the Qualtrics question type is Matrix table or Multiple-choice.
 
 ## Authors
 
-Javascript code by [Alex Brodersen]() and tutorial by [Dani Rebouças Ju](github.com/drebouca)
+Javascript code by [Alex Brodersen](https://www.github.com/alexbrodersen) and tutorial by [Dani Rebouças Ju](https://www.github.com/drebouca)
