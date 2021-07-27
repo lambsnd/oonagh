@@ -13,12 +13,13 @@ To tell Qualtrics that you want to record timestamps, under the "Survey" tab, se
 3. Type a descriptive variable name, for example, `responseTimeMeasurement`.
 4. Save changes and go back to menu the **_Builder_** menu (first icon on left panel).
 
-## Set up a Username variable
+## Set up a Username Variable
 
-For this tutorial, we will call the **Username** variable the one that identifies your participant. After you have added the username question, click on it to select. 
+For this tutorial, we will call the **Username** variable the one that identifies your participant. 
 
-1. Under the **_Builder_** menu, scroll down to the section :arrow_down_small: *Question behavior*, and select the option *Javascript*. 
-2. Add the following script for the data variable `responseTimeMeasurement`, replacing `999` with the [correct QID](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs), and :white_check_mark: save. More instructions on how to find QIDs are given below.
+1. After you have added the username question, click on it to select it. 
+2. Under the **_Builder_** menu, scroll down to the section :arrow_down_small: *Question behavior*, and select the option *Javascript*. 
+3. Add the following script for the data variable `responseTimeMeasurement`, replacing `999` with the [correct QID](https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/#LocatingQualtricsIDs), and :white_check_mark: save. More instructions on how to find QIDs are given below.
 
 ```js
 Qualtrics.SurveyEngine.addOnload(function()
@@ -49,11 +50,13 @@ Qualtrics.SurveyEngine.addOnUnload(function()
 > 5. A list of questions and their IDs will pop up; select the question used to collect the username.
 
 
-## Set up response time data
+## Set up Response Time Data
 
-Select the survey question for which you want to collect RT data. Under the **Edit Question** panel on the left, select under the menu :arrow_down_small: *Question Behavior* the option :radio_button: *Javascript*.
+After editting your username question, you are ready to set up data collection directly in your survey question. Note that the method described here is only for Matrix Table or Multiple-Choice type of questions. 
 
-Then add the following code for the data variable `responseTimeMeasurement`:
+1. Select the survey question for which you want to collect RT data (click on it).
+2. Under the **_Builder_** menu, scroll down to select *Javascript* under the menu :arrow_down_small: *Question Behavior*.
+3. Add the following code for the data variable `responseTimeMeasurement`:
 
 ```js
 Qualtrics.SurveyEngine.addOnload(function()
@@ -86,7 +89,14 @@ Qualtrics.SurveyEngine.addOnUnload(function()
 });
 ```
 
+4. Save your changes.
+5. Publish the survey.
+6. Test out your data collection: the last column of your data should be named "responsetimeMeasurement".
 
 ## Disclaimers
 
-In this example, the Qualtrics question type is Matrix table or Multiple choice. This script may also work for other question types (not tested).
+In this example, the Qualtrics question type is Matrix table or Multiple-choice. This script may also work for other question types (not tested).
+
+## Authors
+
+Javascript code by [Alex Brodersen]() and tutorial by [Dani Rebouças Ju](github.com/drebouca)
